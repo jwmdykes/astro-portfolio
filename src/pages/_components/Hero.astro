@@ -10,39 +10,45 @@ const socialLinks = [
         href: 'https://github.com/jwmdykes',
         width: '28px',
         height: '28px',
+        label: 'Github',
     },
     {
         icon: YouTube,
         href: 'https://www.youtube.com/@aByteWizard',
         width: '30px',
         height: '30px',
+        label: 'Youtube',
     },
     {
         icon: Medium,
         href: 'https://medium.com/@98johndykes',
         width: '36px',
         height: '36px',
+        label: 'Medium',
     },
     {
         icon: Email,
         href: 'mailto:98johndykes@gmail.com',
         width: '28px',
         height: '28px',
+        label: 'Email',
     },
 ]
 ---
 
 <section
-    class="h-[max(500px,calc(100dvh-96px-96px))] flex flex-col items-center justify-center text-center"
+    class="h-[max(500px,calc(100dvh-96px-96px))] flex flex-col items-center justify-center text-center px-4"
 >
-    <div class="text-7xl font-bold">John Dykes</div>
-    <div class="text-2xl mt-6">Full Stack Web and AI Developer</div>
-    <hr class="w-lg my-6 border-t-2 rounded-full" />
+    <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
+    <div class="text-lg sm:text-2xl mt-4 sm:mt-6">
+        Full Stack Web and AI Developer
+    </div>
+    <hr class="w-lg max-w-full my-6 border-t-2 rounded-full" />
     <ul class="flex items-center gap-4">
         {
             socialLinks.map((link) => (
                 <li>
-                    <a href={link.href}>
+                    <a href={link.href} aria-label={link.label}>
                         {<link.icon width={link.width} height={link.height} />}
                     </a>
                 </li>

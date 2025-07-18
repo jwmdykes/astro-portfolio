@@ -1,4 +1,6 @@
 ---
+import Menu from '@/assets/icons/menu.svg'
+
 const navLinks = [
     { label: 'About', href: '/about' },
     { label: 'Projects', href: '/projects' },
@@ -6,20 +8,57 @@ const navLinks = [
 ]
 ---
 
-<header>
-    <nav class="h-24 flex items-center max-w-6xl px-6 mx-auto">
+<header class="relative bg-white">
+    <nav class="h-24 flex items-center justify-between max-w-6xl px-6 mx-auto">
         <a href="/" class="text-lg font-bold">My Portfolio</a>
-        <div class="ml-auto flex gap-3">
+
+        <div class="hidden md:flex ml-auto gap-3">
             {
                 navLinks.map((link) => (
                     <a
                         href={link.href}
-                        class="px-2 py-1 border-b-2 border-transparent hover:border-primary transition-all duration-200"
+                        class="px-2 py-1 border-b-2 border-transparent hover:border-black transition-all duration-200"
                     >
                         {link.label}
                     </a>
                 ))
             }
         </div>
+
+        <button id="menu-btn" class="md:hidden ml-auto p-3 translate-x-3">
+            <Menu width={24} height={24} />
+        </button>
     </nav>
+
+    <div
+        id="mobile-menu"
+        class="hidden absolute top-24 left-0 w-full bg-white border-b-2"
+    >
+        <div class="flex flex-col">
+            {
+                navLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        class="block px-6 py-4 text-gray-700 hover:bg-gray-100"
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
 </header>
+
+<script>
+    // Your existing script works perfectly with the new elements.
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn')
+        const mobileMenu = document.getElementById('mobile-menu')
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden')
+            })
+        }
+    })
+</script>
