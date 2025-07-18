@@ -1,0 +1,25 @@
+---
+const navLinks = [
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Contact', href: '/contact' },
+]
+---
+
+<header>
+    <nav class="h-24 flex items-center max-w-6xl px-6 mx-auto">
+        <a href="/" class="text-lg font-bold">My Portfolio</a>
+        <div class="ml-auto flex gap-3">
+            {
+                navLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        class="px-2 py-1 border-b-2 border-transparent hover:border-primary transition-all duration-200"
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
+        </div>
+    </nav>
+</header>

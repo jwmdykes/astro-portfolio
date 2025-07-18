@@ -1,0 +1,52 @@
+---
+import Email from '@/assets/icons/email.svg'
+import Github from '@/assets/icons/github.svg'
+import Medium from '@/assets/icons/medium.svg'
+import YouTube from '@/assets/icons/youtube.svg'
+
+const socialLinks = [
+    {
+        icon: Github,
+        href: 'https://github.com/jwmdykes',
+        width: '28px',
+        height: '28px',
+    },
+    {
+        icon: YouTube,
+        href: 'https://www.youtube.com/@aByteWizard',
+        width: '30px',
+        height: '30px',
+    },
+    {
+        icon: Medium,
+        href: 'https://medium.com/@98johndykes',
+        width: '36px',
+        height: '36px',
+    },
+    {
+        icon: Email,
+        href: 'mailto:98johndykes@gmail.com',
+        width: '28px',
+        height: '28px',
+    },
+]
+---
+
+<section
+    class="h-[max(500px,calc(100dvh-96px-96px))] flex flex-col items-center justify-center text-center"
+>
+    <div class="text-7xl font-bold">John Dykes</div>
+    <div class="text-2xl mt-6">Full Stack Web and AI Developer</div>
+    <hr class="w-lg my-6 border-t-2 rounded-full" />
+    <ul class="flex items-center gap-4">
+        {
+            socialLinks.map((link) => (
+                <li>
+                    <a href={link.href}>
+                        {<link.icon width={link.width} height={link.height} />}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</section>
