@@ -1,5 +1,5 @@
 ---
-import SectionHeader from './SectionHeader.astro'
+import SectionHeader from '@/components/SectionHeader.astro'
 import DownChevron from '@/assets/icons/chevron.svg'
 
 const recentExperience = [
@@ -78,7 +78,7 @@ const hasMoreItems = recentExperience.length > defaultVisibleItems
             {
                 recentExperience.map((job, index) => (
                     <div
-                        class={`bg-white text-black experience-item ${
+                        class={`experience-item ${
                             index >= defaultVisibleItems
                                 ? 'experience-item-hidden'
                                 : ''

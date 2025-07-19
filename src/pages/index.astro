@@ -2,8 +2,8 @@
 import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero.astro'
 import Projects from '@/components/Projects.astro'
-import SectionHeader from './_components/SectionHeader.astro'
-import Experience from './_components/Experience.astro'
+import Experience from '@/components/Experience.astro'
+import Tools from '@/components/Tools.astro'
 ---
 
 <Layout>
@@ -11,17 +11,7 @@ import Experience from './_components/Experience.astro'
         <Hero />
         <Projects />
         <Experience />
-
-        <section
-            class="flex flex-col items-center justify-center px-8 py-16 relative rounded-sm min-h-[100dvh]"
-        >
-            <SectionHeader>My Favourite Tools</SectionHeader>
-
-            <div
-                class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
-            >
-            </div>
-        </section>
+        <Tools />
 
         <footer class="mt-24">Footer!</footer>
     </main>
