@@ -4,6 +4,8 @@ import Github from '@/assets/icons/github.svg'
 import Medium from '@/assets/icons/medium.svg'
 import YouTube from '@/assets/icons/youtube.svg'
 
+import Down from '@/assets/icons/down.svg'
+
 const socialLinks = [
     {
         icon: Github,
@@ -67,7 +69,6 @@ console.warn(LineTile.src)
     </div>
 
     <div
-        id="line-tile-boundary"
         class="absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
     >
         <LineTile
@@ -80,5 +81,11 @@ console.warn(LineTile.src)
             class="absolute right-0 bottom-0 scale-x-[-1] -rotate-45 translate-x-1/2 translate-y-1/2"
             width={'60%'}
         />
+
+        <div
+            class="flex flex-col items-center gap-2 absolute bottom-4 left-1/2 -translate-x-1/2 font-bold"
+        >
+            <Down width="40px" height="40px" />
+        </div>
     </div>
 </section>

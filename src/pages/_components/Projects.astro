@@ -1,0 +1,99 @@
+---
+import SectionHeader from '@/components/SectionHeader.astro'
+import BlackCircles from '@/assets/design/black-circles.svg'
+
+import LangPanelThumbnail from '@/assets/projects/langpanel.webp'
+import OhKoreanThumbnail from '@/assets/projects/ohkorean.webp'
+import ReactCalculatorThumbnail from '@/assets/projects/react-calculator.webp'
+import WebAudioSynthThumbnail from '@/assets/projects/web-synth.webp'
+
+import { Image } from 'astro:assets'
+
+const featuredProjects = [
+    {
+        title: 'LangPanel',
+        description:
+            'Translate manga, manhua, and manhwa with AI. Powered by custom bounding box detection and OCR models.',
+        link: 'https://chromewebstore.google.com/detail/langpanel/offbdkmkaihbhldllbocekoimhlkkjmp?authuser=0&hl=en',
+        thumbnail: LangPanelThumbnail,
+        alt: 'LangPanel Chrome Extension Thumbnail',
+    },
+    {
+        title: 'Oh! Korean',
+        description:
+            'Korean learning website with lessons, stories, and interactive quizzes and widgets.',
+        link: 'https://ohkorean.com/stories/foundational/sora-and-nabi/',
+        thumbnail: OhKoreanThumbnail,
+        alt: 'Oh! Korean Website Thumbnail',
+    },
+    {
+        title: 'Web Audio Synth',
+        description:
+            'Synthesizer application built with Web Audio API. Different oscillators, filters, and effects can be combined to create unique sounds.',
+        link: 'https://web-synth.pages.dev/',
+        thumbnail: WebAudioSynthThumbnail,
+        alt: 'Web Audio Synth Application Thumbnail',
+    },
+    {
+        title: 'React Calculator Tutorial',
+        description:
+            'Video tutorial for ReactJS and Tailwind CSS explaining the key concepts while creating a calculator app.',
+        link: 'https://www.youtube.com/watch?v=BHaXdVbenoY',
+        thumbnail: ReactCalculatorThumbnail,
+        alt: 'React Calculator Tutorial Thumbnail',
+    },
+]
+---
+
+<section
+    class="flex flex-col items-center justify-center px-8 py-16 relative rounded-sm min-h-[100dvh]"
+>
+    <SectionHeader>Featured Projects</SectionHeader>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-24 max-w-5xl mx-auto"
+    >
+        {
+            featuredProjects.map((project) => (
+                <div class="border-2 rounded-md m-2 relative bg-white flex flex-col">
+                    <Image
+                        src={project.thumbnail}
+                        alt={project.alt}
+                        class={'rounded-t-sm border-b-2'}
+                    />
+                    <div class="p-3 flex flex-col justify-between grow">
+                        <div>
+                            <h3 class="text-2xl font-semibold">
+                                {project.title}
+                            </h3>
+                            <p class="mt-2">{project.description}</p>
+                        </div>
+                        <a
+                            href={project.link}
+                            class="text-center w-full inline-block mt-4 hover:underline border-2 p-2 rounded-sm bg-neutral-900 text-white font-bold text-lg tracking-wider"
+                        >
+                            View Project
+                        </a>
+                    </div>
+
+                    {/* <div class="absolute top-2 left-2 w-full h-full bg-black -z-10 rounded-sm" /> */}
+                </div>
+            ))
+        }
+    </div>
+
+    <div
+        class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+    >
+        <BlackCircles
+            class="absolute bottom-0 left-0 scale-y-[-1]"
+            width={'30dvw'}
+            height={'30dvw'}
+        />
+
+        <BlackCircles
+            class="absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1]"
+            width={'30dvw'}
+            height={'30dvw'}
+        />
+    </div>
+</section>
