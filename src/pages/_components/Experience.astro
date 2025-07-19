@@ -1,0 +1,177 @@
+---
+import SectionHeader from './SectionHeader.astro'
+import DownChevron from '@/assets/icons/chevron.svg'
+
+const recentExperience = [
+    {
+        title: 'LangPanel',
+        role: 'Founder',
+        date: 'May 2024 — Present',
+        description: [
+            'Developing AI powered translation application for comics',
+            'OCR AI model designed and trained using pytorch and proprietary text rendering library.',
+            'Models run in the browser with WebGPU, reducing costs',
+        ],
+    },
+    {
+        title: 'Communications Security Establishment',
+        role: 'Cryptanalyst',
+        date: 'September 2020 — May 2024',
+        description: [
+            'Implementing, evaluating cryptographic standards and algorithms',
+            'Other top secret cryptographic research',
+        ],
+    },
+    {
+        title: 'Communications Research Centre Canada',
+        role: 'Computer Research Programmer',
+        date: 'November 2019 — September 2020',
+        description: [
+            'Applied machine learning and Geo-computation to Telecommunications Data, including estimating the interference that cellular towers have on each other',
+            'Attended a 1-week long training course on machine learning using TensorFlow',
+        ],
+    },
+    {
+        title: 'University of Waterloo',
+        role: 'Graduate Student',
+        date: 'January 2019 — December 2019',
+        description: [
+            "Master's degree program in mathematics",
+            'Studied analytic number theory with Professor Yu-Ru Liu',
+        ],
+    },
+    {
+        title: 'University of Waterloo and Carleton University',
+        role: 'Teaching Assistant',
+        date: 'Sept. 2017 — December 2018',
+        description: [
+            'Marked assignments for undergraduate math classes',
+            'Held office hours to answer student questions',
+            'Taught tutorials for undergraduate math classes',
+        ],
+    },
+    {
+        title: 'Carleton University',
+        role: 'Undergraduate Student',
+        date: 'May 2014 — December 2017',
+        description: [
+            "Bachelor's degree in Mathematics, honours",
+            'Graduated with high distinction',
+            'Senate Medal for Outstanding Academic Achievement 2018',
+        ],
+    },
+]
+
+const defaultVisibleItems = 4 // Number of items to show by default
+const hasMoreItems = recentExperience.length > defaultVisibleItems
+---
+
+<section
+    class="flex flex-col items-center justify-center px-8 py-16 relative rounded-sm min-h-[100dvh]"
+>
+    <SectionHeader>Experience</SectionHeader>
+
+    <div
+        class="mt-12 md:mt-24 flex justify-between gap-8 max-w-2xl mx-auto w-full"
+    >
+        <div class="flex flex-col gap-8" id="experience-list-container">
+            {
+                recentExperience.map((job, index) => (
+                    <div
+                        class={`bg-white text-black experience-item ${
+                            index >= defaultVisibleItems
+                                ? 'experience-item-hidden'
+                                : ''
+                        }`}
+                        data-index={index}
+                    >
+                        <h3 class="text-2xl font-semibold">{job.title}</h3>
+                        <p class="mt-0.5 text-lg font-medium">
+                            {job.role} /{' '}
+                            <span class="text-neutral-600">{job.date}</span>
+                        </p>
+                        <ul class="list-disc list-inside mt-2 text-neutral-800">
+                            {job.description.map((item) => (
+                                <li>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+        <div class="w-1 bg-black hidden sm:block"></div>
+    </div>
+
+    {/* Show More/Less Button */}
+    {
+        hasMoreItems && (
+            <div class="max-w-2xl mx-auto w-full">
+                <button
+                    id="toggle-experience-btn"
+                    class="p-1 ml-auto flex items-center justify-right gap-2 mt-6 text-lg font-bold
+                                   hover:text-neutral-600 transition-colors duration-200 group hover:underline"
+                    aria-expanded="false"
+                    aria-controls="experience-list-container"
+                >
+                    <span id="toggle-text">Show More</span>
+                    <DownChevron
+                        width="20px"
+                        height="20px"
+                        class="transition-transform duration-300 group-hover:translate-y-[2px]"
+                        id="toggle-icon"
+                    />
+                </button>
+            </div>
+        )
+    }
+
+    <div
+        class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+    >
+    </div>
+</section>
+
+<style>
+    .experience-item-hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.getElementById(
+            'toggle-experience-btn'
+        ) as HTMLButtonElement
+        const toggleText = document.getElementById('toggle-text') as HTMLElement
+        const toggleIcon = document.getElementById('toggle-icon') as HTMLElement
+        const experienceItems = document.querySelectorAll('.experience-item') // Get all items
+        const defaultVisible = 4 // Must match the value in Astro front matter
+
+        if (!toggleButton) {
+            // console.warn('Toggle button not found for experience section.');
+            return // Exit if button not found (e.g., if hasMoreItems is false)
+        }
+
+        let showingAll = false
+
+        toggleButton.addEventListener('click', () => {
+            showingAll = !showingAll
+
+            experienceItems.forEach((item, index) => {
+                if (index >= defaultVisible) {
+                    item.classList.toggle('experience-item-hidden', !showingAll)
+                }
+            })
+
+            if (showingAll) {
+                toggleText.textContent = 'Show Less'
+                toggleIcon.classList.add('rotate-180')
+                toggleButton.setAttribute('aria-expanded', 'true')
+            } else {
+                toggleText.textContent = 'Show More'
+                toggleIcon.classList.remove('rotate-180')
+                toggleButton.setAttribute('aria-expanded', 'false')
+            }
+        })
+    })
+</script>

@@ -59,6 +59,7 @@ const featuredProjects = [
                         src={project.thumbnail}
                         alt={project.alt}
                         class={'rounded-t-sm border-b-2'}
+                        width={680}
                     />
                     <div class="p-3 flex flex-col justify-between grow">
                         <div>
@@ -85,13 +86,13 @@ const featuredProjects = [
         class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
     >
         <BlackCircles
-            class="absolute bottom-0 left-0 scale-y-[-1]"
+            class="absolute bottom-0 left-0 scale-y-[-1] max-w-[300px] max-h-[300px]"
             width={'30dvw'}
             height={'30dvw'}
         />
 
         <BlackCircles
-            class="absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1]"
+            class="absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1] max-w-[300px] max-h-[300px]"
             width={'30dvw'}
             height={'30dvw'}
         />
