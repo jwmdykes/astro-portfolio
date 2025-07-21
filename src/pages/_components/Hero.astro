@@ -37,14 +37,13 @@ const socialLinks = [
     },
 ]
 import LineTile from '@/assets/design/line-tile.svg'
+import Section from '@/components/Section.astro'
 
 console.warn(LineTile.src)
 ---
 
-<section
-    class="mx-auto h-[max(500px,100dvh)] -mt-[96px] relative overflow-hidden"
->
-    <div class="px-6 w-full flex flex-col items-center justify-center h-full">
+<Section class="flex flex-col">
+    <div class="px-6 grow flex flex-col items-center justify-center">
         <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
         <div class="text-lg sm:text-2xl mt-4 sm:mt-6">
             Full Stack Web and AI Developer
@@ -69,7 +68,7 @@ console.warn(LineTile.src)
     </div>
 
     <div
-        class="absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+        class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
     >
         <LineTile
             id="left-line-tile"
@@ -88,4 +87,4 @@ console.warn(LineTile.src)
             <Down width="40px" height="40px" />
         </div>
     </div>
-</section>
+</Section>

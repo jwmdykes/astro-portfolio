@@ -7,6 +7,8 @@ import OhKoreanThumbnail from '@/assets/projects/ohkorean.webp'
 import ReactCalculatorThumbnail from '@/assets/projects/react-calculator.webp'
 import WebAudioSynthThumbnail from '@/assets/projects/web-synth.webp'
 
+import Section from '@/components/Section.astro'
+
 import { Image } from 'astro:assets'
 
 const featuredProjects = [
@@ -45,16 +47,16 @@ const featuredProjects = [
 ]
 ---
 
-<section
-    class="flex flex-col items-center justify-center px-5 sm:px-8 py-16 relative rounded-sm min-h-[100dvh]"
+<Section
+    class="mt-4 flex flex-col items-center justify-center px-4 sm:px-8 py-16 z-10"
 >
     <SectionHeader>Featured Projects</SectionHeader>
     <div
-        class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-24 max-w-5xl mx-auto"
+        class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-24 max-w-4xl mx-auto gap-4"
     >
         {
             featuredProjects.map((project) => (
-                <div class="border-2 rounded-md m-2 relative bg-white flex flex-col">
+                <div class="border-2 rounded-md relative bg-white flex flex-col">
                     <Image
                         src={project.thumbnail}
                         alt={project.alt}
@@ -75,15 +77,13 @@ const featuredProjects = [
                             View Project
                         </a>
                     </div>
-
-                    {/* <div class="absolute top-2 left-2 w-full h-full bg-black -z-10 rounded-sm" /> */}
                 </div>
             ))
         }
     </div>
 
     <div
-        class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden"
     >
         <BlackCircles
             class="absolute bottom-0 left-0 scale-y-[-1] max-w-[300px] max-h-[300px]"
@@ -97,4 +97,4 @@ const featuredProjects = [
             height={'30dvw'}
         />
     </div>
-</section>
+</Section>

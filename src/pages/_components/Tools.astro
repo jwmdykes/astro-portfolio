@@ -1,14 +1,88 @@
 ---
 import SectionHeader from '@/components/SectionHeader.astro'
+
+import Backend from '@/assets/icons/backend.svg'
+import Frontend from '@/assets/icons/web-design.svg'
+import AI from '@/assets/icons/chat.svg'
+import Section from '@/components/Section.astro'
+
+import VerticalLines from '@/assets/design/vertical-lines.svg'
+
+const skills = [
+    {
+        title: 'Frontend',
+        tools: [
+            '5+ years of experience with <strong>React</strong>, including <strong>SSR</strong>',
+            'My favourite way to work with CSS is with <strong>Tailwind CSS</strong>',
+            'I use <strong>Astro JS </strong>for my content-heavy websites',
+            'Creating SVG/image assets with the <strong>Affinity suite</strong> of design tools',
+            'Experience with <strong>Web Workers</strong>, offloading AI/image manipulation tasks away from the main thread',
+            'Experience creating <strong>browser extensions</strong>',
+        ],
+        icon: Frontend,
+    },
+    {
+        title: 'Backend',
+        tools: [
+            'Hosting applications on <strong>Google Cloud</strong> (Cloud Run, Compute Engine, Cloud Storage, Cloud Build)',
+            'Backends with <strong>Fastify</strong>, including <strong>TRPC</strong> integration, custom plugins, authentication, and authorization',
+            'Hosting websites/applications on <strong>CloudFlare workers</strong>',
+            'Strong knowledge of <strong>PostgreSQL</strong>, including row level security, triggers, plpgsql',
+        ],
+        icon: Backend,
+    },
+    {
+        title: 'AI',
+        tools: [
+            'Training custom Transformer-based AI models with <strong>PyTorch</strong>',
+            'Training <strong>Darknet/Yolov4</strong> Models',
+            'Making use of <strong>OpenAI</strong> and <strong>Gemini</strong> APIs in applications',
+            'Running AI models in browser with <strong>ONNX and WebGPU</strong>',
+            'Created a rust library which generates <strong>synthetic training data</strong> for an OCR model',
+        ],
+        icon: AI,
+    },
+]
 ---
 
-<section
-    class="flex flex-col items-center justify-center px-8 py-16 relative rounded-sm min-h-[100dvh]"
->
-    <SectionHeader>My Favourite Tools</SectionHeader>
+<Section class="mt-4 flex flex-col items-center justify-center px-8 py-16 z-10">
+    <SectionHeader>My Skills</SectionHeader>
+    <div
+        class="max-w-5xl mx-auto mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-4"
+    >
+        {
+            skills.map((skill) => (
+                <div class="border-2 px-4 py-6 rounded-xl relative bg-white">
+                    {<skill.icon width={60} height={60} class="mt-2 mx-auto" />}
+
+                    <h2 class="mt-3 text-center text-2xl font-medium">
+                        {skill.title}
+                    </h2>
+
+                    <div class="w-full h-0.5 bg-black mt-5" />
+
+                    <ul class="mt-4 flex flex-col gap-4 ml-4">
+                        {skill.tools.map((tool) => (
+                            <li
+                                class="list-disc list-outside"
+                                set:html={tool}
+                            />
+                        ))}
+                    </ul>
+
+                    <div class="absolute w-full h-full top-2 left-2 bg-black rounded-xl -z-10" />
+                </div>
+            ))
+        }
+    </div>
 
     <div
-        class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+        class="z-110 absolute top-0 w-full h-full pointer-events-none overflow-hidden"
     >
+        <VerticalLines
+            class="absolute bottom-0"
+            height={'10svh'}
+            width={'40svh'}
+        />
     </div>
-</section>
+</Section>

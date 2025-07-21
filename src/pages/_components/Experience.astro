@@ -66,11 +66,11 @@ const recentExperience = [
 
 const defaultVisibleItems = 4 // Number of items to show by default
 const hasMoreItems = recentExperience.length > defaultVisibleItems
+
+import Section from '@/components/Section.astro'
 ---
 
-<section
-    class="flex flex-col items-center justify-center px-8 py-16 relative rounded-sm min-h-[100dvh]"
->
+<Section class="mt-4 flex flex-col items-center justify-center px-8 py-16 z-10">
     <SectionHeader>Experience</SectionHeader>
 
     <div
@@ -128,7 +128,7 @@ const hasMoreItems = recentExperience.length > defaultVisibleItems
     }
 
     <div
-        class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
+        class="-z-10 absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
     >
         <Lines
             class="absolute top-0 left-0 max-w-[400px] max-h-[200px] scale-x-[-1]"
@@ -141,7 +141,7 @@ const hasMoreItems = recentExperience.length > defaultVisibleItems
             width={'30dvw'}
         />
     </div>
-</section>
+</Section>
 
 <style>
     .experience-item-hidden {
