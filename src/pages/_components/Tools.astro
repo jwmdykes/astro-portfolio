@@ -79,12 +79,19 @@ const skills = [
     </div>
 
     <div
-        class="z-110 absolute top-0 w-full h-full pointer-events-none overflow-hidden"
+        class="-z-10 absolute top-0 w-full h-full pointer-events-none overflow-hidden"
     >
-        <VerticalLines
-            class="absolute bottom-0"
-            height={'10svh'}
-            width={'40svh'}
-        />
+        <div
+            id="bar-lines"
+            class="hidden md:block absolute bottom-0 h-[10svh] w-full"
+        >
+        </div>
     </div>
 </Section>
+
+<style define:vars={{ verticalLines: `url(${VerticalLines.src})` }}>
+    #bar-lines {
+        background-image: var(--verticalLines);
+        background-repeat: repeat;
+    }
+</style>
