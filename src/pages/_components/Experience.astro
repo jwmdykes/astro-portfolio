@@ -2,6 +2,8 @@
 import SectionHeader from '@/components/SectionHeader.astro'
 import DownChevron from '@/assets/icons/chevron.svg'
 
+import Lines from '@/assets/design/lines.svg'
+
 const recentExperience = [
     {
         title: 'LangPanel',
@@ -128,6 +130,16 @@ const hasMoreItems = recentExperience.length > defaultVisibleItems
     <div
         class="-z-10 absolute top-[10px] left-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)] border-3 pointer-events-none rounded-sm fakePage overflow-hidden"
     >
+        <Lines
+            class="absolute top-0 left-0 max-w-[400px] max-h-[200px] scale-x-[-1]"
+            height={'15dvw'}
+            width={'30dvw'}
+        />
+        <Lines
+            class="absolute top-0 right-0 max-w-[400px] max-h-[200px]"
+            height={'15dvw'}
+            width={'30dvw'}
+        />
     </div>
 </section>
 
