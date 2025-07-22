@@ -8,4 +8,4 @@
     --color-background: hsl(60, 27%, 98%);
 }
 
-@config "./tailwind.config.js";
+@config "@/styles/tailwind.config.js";

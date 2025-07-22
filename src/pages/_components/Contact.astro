@@ -1,0 +1,88 @@
+---
+import Section from '@/components/Section.astro'
+import SectionHeader from '@/components/SectionHeader.astro'
+---
+
+<Section class="mt-4 flex flex-col items-center justify-center py-16 px-4">
+    <SectionHeader>Contact Me</SectionHeader>
+
+    <form
+        action="#"
+        method="POST"
+        class="mt-12 w-full max-w-xl flex flex-col gap-6"
+    >
+        {/* Name Field */}
+        <div>
+            <label for="name" class="form-label"> Your Name </label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                class="form-input"
+            />
+        </div>
+
+        {/* Email Field */}
+        <div>
+            <label for="email" class="form-label"> Your Email </label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john.doe@example.com"
+                class="form-input"
+            />
+        </div>
+
+        {/* Reason for Contact Field */}
+        <div>
+            <label for="reason" class="form-label"> Reason For Contact </label>
+            <select id="reason" name="reason" class="form-input">
+                <option>Select a reason</option>
+                <option>General Inquiry</option>
+                <option>Project Proposal</option>
+                <option>Collaboration</option>
+                <option>Just saying hi!</option>
+            </select>
+        </div>
+
+        {/* Message Field */}
+        <div>
+            <label for="message" class="form-label"> Message </label>
+            <textarea
+                id="message"
+                name="message"
+                rows={5}
+                placeholder="Your message here..."
+                class="form-input"></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <div>
+            <button type="submit" class="submit-button"> Send Message </button>
+        </div>
+    </form>
+</Section>
+
+<style>
+    @import '@/styles/global.css';
+
+    .form-label {
+        @apply block text-sm font-medium text-neutral-800 mb-2;
+    }
+
+    .form-input {
+        @apply block w-full rounded-lg border-2 border-neutral-300 bg-white p-3 text-neutral-900 focus:border-black focus:ring-black transition;
+    }
+
+    .submit-button {
+        @apply w-full rounded-full bg-black px-6 py-3 text-lg font-semibold text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black transition-colors;
+    }
+</style>
+
+<script>
+    const submitButton = document.getElementsByClassName('submit-button')
+
+    console.log('submit button:', submitButton)
+</script>
