@@ -3,9 +3,12 @@ import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero.astro'
 import Projects from '@/components/Projects.astro'
 import Experience from '@/components/Experience.astro'
-import Tools from '@/components/Tools.astro'
+import Skills from '@/components/Skills.astro'
+import Footer from '@/components/Footer.astro'
 
-import { socialLinks } from '@/components/Hero.astro'
+// contact section
+import Section from '@/components/Section.astro'
+import SectionHeader from '@/components/SectionHeader.astro'
 ---
 
 <Layout>
@@ -13,36 +16,11 @@ import { socialLinks } from '@/components/Hero.astro'
         <Hero />
         <Projects />
         <Experience />
-        <Tools />
+        <Skills />
 
-        <footer
-            class="mt-4 bg-background py-4 rounded-t-xl flex items-center justify-between px-4"
-        >
-            <div class="text-neutral-600 text-left">
-                Created by &copy; John Dykes
-            </div>
-            <div class="flex gap-4 items-center">
-                <ul class="flex items-center justify-center gap-4">
-                    {
-                        socialLinks.map((link) => (
-                            <li class="fill-neutral-700">
-                                <a
-                                    href={link.href}
-                                    aria-label={link.label}
-                                    class="hover:fill-black"
-                                >
-                                    {
-                                        <link.icon
-                                            width={link.width}
-                                            height={link.height}
-                                        />
-                                    }
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-        </footer>
+        <Section class="mt-4" />
+        <SectionHeader>Contact Me</SectionHeader>
+
+        <Footer />
     </main>
 </Layout>

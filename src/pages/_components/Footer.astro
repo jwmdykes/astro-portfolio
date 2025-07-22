@@ -1,0 +1,31 @@
+---
+import { socialLinks } from '@/components/Hero.astro'
+---
+
+<footer
+    class="mt-4 bg-background py-4 rounded-t-xl flex items-center justify-between px-4"
+>
+    <div class="text-neutral-600 text-left">Created by &copy; John Dykes</div>
+    <div class="flex gap-4 items-center">
+        <ul class="flex items-center justify-center gap-4">
+            {
+                socialLinks.map((link) => (
+                    <li class="fill-neutral-700">
+                        <a
+                            href={link.href}
+                            aria-label={link.label}
+                            class="hover:fill-black"
+                        >
+                            {
+                                <link.icon
+                                    width={link.width}
+                                    height={link.height}
+                                />
+                            }
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</footer>
