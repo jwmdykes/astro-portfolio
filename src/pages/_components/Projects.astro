@@ -10,6 +10,7 @@ import WebAudioSynthThumbnail from '@/assets/projects/web-synth.webp'
 import Section from '@/components/Section.astro'
 
 import { Image } from 'astro:assets'
+import type { HTMLAttributes } from 'astro/types'
 
 const featuredProjects = [
     {
@@ -45,10 +46,15 @@ const featuredProjects = [
         alt: 'React Calculator Tutorial Thumbnail',
     },
 ]
+
+type Props = HTMLAttributes<'section'>
+
+const { class: className, ...props } = Astro.props
 ---
 
 <Section
-    class="mt-4 flex flex-col items-center justify-center px-4 sm:px-8 py-16 z-10"
+    class="mt-4 flex flex-col items-center justify-center px-4 sm:px-8 py-16 z-10 scroll-mt-21"
+    {...props}
 >
     <SectionHeader>Featured Projects</SectionHeader>
     <div

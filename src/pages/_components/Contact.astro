@@ -1,11 +1,19 @@
 ---
 import Section from '@/components/Section.astro'
 import SectionHeader from '@/components/SectionHeader.astro'
+import type { HTMLAttributes } from 'astro/types'
 
 const web3FormPublicAccessKey = 'c484318c-85d9-4017-8076-821d1f647dc5'
+
+type Props = HTMLAttributes<'section'>
+
+const { class: className, ...props } = Astro.props
 ---
 
-<Section class="mt-4 flex flex-col items-center justify-center py-16 px-4">
+<Section
+    class="mt-4 flex flex-col items-center justify-center py-16 px-4 scroll-mt-21"
+    {...props}
+>
     <SectionHeader>Contact Me</SectionHeader>
 
     <form

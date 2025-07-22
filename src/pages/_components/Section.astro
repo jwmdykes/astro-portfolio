@@ -1,16 +1,17 @@
 ---
-interface Props {
-    class?: string
-}
+import type { HTMLAttributes } from 'astro/types'
 
-const { class: className } = Astro.props
+type Props = HTMLAttributes<'section'>
+
+const { class: className, ...props } = Astro.props
 ---
 
 <section
     class:list={[
-        'rounded-xl mx-0 md:mx-3 min-h-[max(500px,calc(100svh-72px-24px))] bg-background relative text-neutral-800 overflow-hidden',
+        'rounded-xl mx-0 md:mx-3 min-h-[max(500px,calc(100svh-72px-24px))] bg-background relative text-neutral-800',
         className,
     ]}
+    {...props}
 >
     <slot />
 </section>
