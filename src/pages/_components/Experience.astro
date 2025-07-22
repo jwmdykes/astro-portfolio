@@ -101,7 +101,7 @@ import Section from '@/components/Section.astro'
                 ))
             }
         </div>
-        <div class="w-1 bg-black hidden sm:block"></div>
+        <div class="w-1 bg-neutral-500 hidden sm:block"></div>
     </div>
 
     {/* Show More/Less Button */}
@@ -111,7 +111,7 @@ import Section from '@/components/Section.astro'
                 <button
                     id="toggle-experience-btn"
                     class="p-1 ml-auto flex items-center justify-right gap-2 mt-6 text-lg font-bold
-                                   hover:text-neutral-600 transition-colors duration-200 group hover:underline"
+                                   transition-colors duration-200 group hover:underline"
                     aria-expanded="false"
                     aria-controls="experience-list-container"
                 >
@@ -128,7 +128,7 @@ import Section from '@/components/Section.astro'
     }
 
     <div
-        class="-z-10 absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
+        class="-z-10 absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden fill-neutral-400"
     >
         <Lines
             class="absolute top-0 left-0 max-w-[400px] max-h-[200px] scale-x-[-1]"

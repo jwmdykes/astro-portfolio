@@ -56,7 +56,7 @@ const featuredProjects = [
     >
         {
             featuredProjects.map((project) => (
-                <div class="rounded-xl relative bg-neutral-50 flex flex-col shadow-md">
+                <div class="rounded-2xl relative bg-white flex flex-col shadow-sm border-2 overflow-hidden border-neutral-200">
                     <Image
                         src={project.thumbnail}
                         alt={project.alt}
@@ -72,7 +72,7 @@ const featuredProjects = [
                         </div>
                         <a
                             href={project.link}
-                            class="text-center w-full inline-block mt-4 hover:underline border-2 p-2 rounded-sm bg-neutral-900 text-white font-bold text-lg tracking-wider"
+                            class="text-center w-full inline-block mt-4 hover:underline border-2 p-2 rounded-xl bg-neutral-900 text-white font-bold text-lg tracking-wider"
                         >
                             View Project
                         </a>
@@ -83,7 +83,7 @@ const featuredProjects = [
     </div>
 
     <div
-        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden"
+        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden fill-neutral-400"
     >
         <BlackCircles
             class="absolute bottom-0 left-0 scale-y-[-1] max-w-[300px] max-h-[300px]"
