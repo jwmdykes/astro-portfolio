@@ -1,16 +1,26 @@
 ---
 import Section from '@/components/Section.astro'
 import SectionHeader from '@/components/SectionHeader.astro'
+
+const web3FormPublicAccessKey = 'c484318c-85d9-4017-8076-821d1f647dc5'
 ---
 
 <Section class="mt-4 flex flex-col items-center justify-center py-16 px-4">
     <SectionHeader>Contact Me</SectionHeader>
 
     <form
+        id="form"
         action="#"
         method="POST"
         class="mt-12 w-full max-w-xl flex flex-col gap-6"
     >
+        <input
+            type="hidden"
+            name="access_key"
+            value={web3FormPublicAccessKey}
+        />
+        <input type="hidden" name="redirect" />
+
         {/* Name Field */}
         <div>
             <label for="name" class="form-label"> Your Name </label>
@@ -20,6 +30,7 @@ import SectionHeader from '@/components/SectionHeader.astro'
                 name="name"
                 placeholder="John Doe"
                 class="form-input"
+                required
             />
         </div>
 
@@ -32,13 +43,14 @@ import SectionHeader from '@/components/SectionHeader.astro'
                 name="email"
                 placeholder="john.doe@example.com"
                 class="form-input"
+                required
             />
         </div>
 
         {/* Reason for Contact Field */}
         <div>
             <label for="reason" class="form-label"> Reason For Contact </label>
-            <select id="reason" name="reason" class="form-input">
+            <select id="reason" name="reason" class="form-input" required>
                 <option>Select a reason</option>
                 <option>General Inquiry</option>
                 <option>Project Proposal</option>
@@ -55,7 +67,8 @@ import SectionHeader from '@/components/SectionHeader.astro'
                 name="message"
                 rows={5}
                 placeholder="Your message here..."
-                class="form-input"></textarea>
+                class="form-input"
+                required></textarea>
         </div>
 
         {/* Submit Button */}
@@ -82,7 +95,43 @@ import SectionHeader from '@/components/SectionHeader.astro'
 </style>
 
 <script>
-    const submitButton = document.getElementsByClassName('submit-button')
+    const form = document.getElementById('form') as HTMLFormElement
+    const result = document.getElementsByClassName('submit-button')[0]
 
-    console.log('submit button:', submitButton)
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        const formData = new FormData(form)
+        console.log('got for data:', formData)
+        const object = Object.fromEntries(formData)
+        const json = JSON.stringify(object)
+        result.innerHTML = 'Sending...'
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: json,
+        })
+            .then(async (response) => {
+                let json = await response.json()
+                if (response.status == 200) {
+                    result.innerHTML = 'Message Sent'
+                } else {
+                    console.log(response)
+                    result.innerHTML = json.message
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+                result.innerHTML = 'Something went wrong!'
+            })
+            .then(function () {
+                form.reset()
+                setTimeout(() => {
+                    result.innerHTML = 'Send Message'
+                }, 3000)
+            })
+    })
 </script>

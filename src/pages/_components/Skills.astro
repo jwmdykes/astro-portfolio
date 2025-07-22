@@ -13,7 +13,7 @@ const skills = [
         title: 'Frontend',
         tools: [
             '5+ years of experience with <strong>React</strong>, including <strong>SSR</strong>',
-            'My favourite way to work with CSS is with <strong>Tailwind CSS</strong>',
+            'Experience with <strong>CSS</strong> and <strong>Tailwind CSS</strong>',
             'I use <strong>Astro JS </strong>for my content-heavy websites',
             'Creating SVG/image assets with the <strong>Affinity suite</strong> of design tools',
             'Experience with <strong>Web Workers</strong>, offloading AI/image manipulation tasks away from the main thread',
@@ -39,6 +39,7 @@ const skills = [
             'Making use of <strong>OpenAI</strong> and <strong>Gemini</strong> APIs in applications',
             'Running AI models in browser with <strong>ONNX and WebGPU</strong>',
             'Created a rust library which generates <strong>synthetic training data</strong> for an OCR model',
+            'Created web UI for labeling <strong>bounding box</strong> data for LangPanel.',
         ],
         icon: AI,
     },
@@ -55,9 +56,15 @@ const skills = [
         {
             skills.map((skill) => (
                 <div class="border-2 border-neutral-300 px-4 py-6 rounded-xl relative bg-white">
-                    {<skill.icon width={60} height={60} class="mt-2 mx-auto" />}
+                    {
+                        <skill.icon
+                            width={60}
+                            height={60}
+                            class="mt-2 mx-auto fill-neutral-500"
+                        />
+                    }
 
-                    <h2 class="mt-3 text-center text-2xl font-medium">
+                    <h2 class="mt-3 text-center text-2xl font-bold">
                         {skill.title}
                     </h2>
 
