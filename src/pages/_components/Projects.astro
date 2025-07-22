@@ -56,11 +56,11 @@ const featuredProjects = [
     >
         {
             featuredProjects.map((project) => (
-                <div class="border-2 rounded-md relative bg-white flex flex-col">
+                <div class="rounded-xl relative bg-neutral-50 flex flex-col shadow-md">
                     <Image
                         src={project.thumbnail}
                         alt={project.alt}
-                        class={'rounded-t-sm border-b-2'}
+                        class={'rounded-t-sm'}
                         width={680}
                     />
                     <div class="p-3 flex flex-col justify-between grow">
