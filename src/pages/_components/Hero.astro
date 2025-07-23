@@ -45,12 +45,10 @@ import HeroParticles from '@/components/HeroParticles.astro'
         class="px-6 py-6 flex flex-col items-center justify-center rounded-full bg-radial from-white from-30% to-transparent z-10 text-center"
     >
         <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
-        <div class="text-lg sm:text-2xl mt-4 sm:mt-6">
+        <div class="text-lg sm:text-2xl mt-4 sm:mt-6 text-neutral-700">
             Full Stack Web and AI Developer
         </div>
-        <hr
-            class="mx-auto max-w-full my-6 border-t-3 border-neutral-400 rounded-full"
-        />
+        <hr class="w-full h-1.5 my-6 bg-neutral-200 rounded-full border-none" />
         <ul class="flex items-center justify-center gap-4 fill-current">
             {
                 socialLinks.map((link) => (
