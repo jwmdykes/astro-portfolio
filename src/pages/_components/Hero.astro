@@ -38,6 +38,7 @@ export const socialLinks = [
 ]
 import Section from '@/components/Section.astro'
 import HeroParticles from '@/components/HeroParticles.astro'
+import Mountains from '@/assets/design/mountains.svg'
 ---
 
 <Section class="flex flex-col items-center justify-center relative">
@@ -68,10 +69,15 @@ import HeroParticles from '@/components/HeroParticles.astro'
     </div>
 
     <div
-        class="flex flex-col items-center gap-1 absolute bottom-4 left-1/2 -translate-x-1/2 font-medium text-sm"
+        class="absolute bottom-0 left-0 w-full overflow-hidden z-20 flex items-center justify-center"
     >
-        Scroll
-        <Down width="35px" height="35px" />
+        <Mountains class="max-w-4xl min-w-xl mx-auto" />
+        <div
+            class="flex flex-col items-center gap-1 absolute bottom-4 left-1/2 -translate-x-1/2 font-medium text-sm"
+        >
+            Scroll
+            <Down width="35px" height="35px" />
+        </div>
     </div>
 
     <HeroParticles />
