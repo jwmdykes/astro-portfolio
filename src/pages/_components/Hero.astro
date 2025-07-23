@@ -67,7 +67,7 @@ import Section from '@/components/Section.astro'
     </div>
 
     <div
-        id="tsparticles"
+        id="ts-particles"
         class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
     >
         <div
@@ -82,14 +82,30 @@ import Section from '@/components/Section.astro'
 <script>
     import { tsParticles } from '@tsparticles/engine'
 
+    console.log(tsParticles)
+
     document.addEventListener('DOMContentLoaded', async () => {
         await tsParticles.load({
-            id: 'tsparticles',
-            options: {},
+            id: 'ts-particles',
+            options: {
+                particles: {
+                    number: {
+                        value: 100,
+                    },
+                    links: {
+                        enable: true,
+                    },
+                    move: {
+                        enable: true,
+                    },
+                    color: {
+                        value: '#00ff00',
+                    },
+                    size: {
+                        value: { min: 1, max: 3 },
+                    },
+                },
+            },
         })
-
-        const particles = tsParticles.domItem(0)
-        console.log(particles)
-        particles?.play()
     })
 </script>
