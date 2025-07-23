@@ -57,18 +57,20 @@ const skills = [
             skills.map((skill) => (
                 <div class="border-2 border-neutral-100 px-4 py-6 rounded-xl relative bg-white">
                     {
-                        <skill.icon
-                            width={60}
-                            height={60}
-                            class="mt-2 mx-auto fill-neutral-500"
-                        />
+                        <div class="mx-auto h-18 w-18 rounded-full bg-neutral-700 flex items-center justify-center">
+                            <skill.icon
+                                width={40}
+                                height={40}
+                                class={`mx-auto fill-white ${skill.title === 'Backend' && 'translate-x-0.5 translate-y-[1px]'} ${skill.title === 'AI' && 'translate-y-[1px]'}`}
+                            />
+                        </div>
                     }
 
-                    <h2 class="mt-3 text-center text-2xl font-bold">
+                    <h2 class="mt-2 text-center text-2xl font-bold">
                         {skill.title}
                     </h2>
 
-                    <div class="w-full h-[1px] bg-neutral-400 mt-5" />
+                    <div class="w-full h-[2px] bg-neutral-300 mt-4 rounded-full" />
 
                     <ul class="mt-4 flex flex-col gap-4 ml-4">
                         {skill.tools.map((tool) => (
