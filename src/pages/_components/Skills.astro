@@ -51,11 +51,11 @@ const skills = [
 >
     <SectionHeader>My Skills</SectionHeader>
     <div
-        class="max-w-5xl mx-auto mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-y-6 md:gap-y-12 gap-x-5"
+        class="max-w-6xl mx-auto mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-3 gap-y-5 md:gap-y-6 gap-x-6"
     >
         {
             skills.map((skill) => (
-                <div class="border-2 border-neutral-100 px-4 py-6 rounded-xl relative bg-white">
+                <div class="border-3 border-neutral-200 px-4 py-6 rounded-xl relative bg-white">
                     {
                         <div class="mx-auto h-18 w-18 rounded-full bg-neutral-700 flex items-center justify-center">
                             <skill.icon
@@ -81,7 +81,7 @@ const skills = [
                         ))}
                     </ul>
 
-                    <div class="absolute w-full h-full top-2 left-2 bg-neutral-400 rounded-xl -z-10" />
+                    <div class="absolute w-full h-full top-2 left-2 bg-neutral-200 rounded-xl -z-10" />
                 </div>
             ))
         }

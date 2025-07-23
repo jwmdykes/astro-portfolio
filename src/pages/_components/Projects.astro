@@ -58,7 +58,7 @@ const { class: className, ...props } = Astro.props
 >
     <SectionHeader>Featured Projects</SectionHeader>
     <div
-        class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-24 max-w-4xl mx-auto gap-4"
+        class="grid grid-cols-1 md:grid-cols-2 mt-12 md:mt-24 max-w-4xl mx-auto gap-4 sm:gap-8"
     >
         {
             featuredProjects.map((project) => (
@@ -89,7 +89,7 @@ const { class: className, ...props } = Astro.props
     </div>
 
     <div
-        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden fill-neutral-400"
+        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden fill-neutral-200"
     >
         <BlackCircles
             class="absolute bottom-0 left-0 scale-y-[-1] max-w-[300px] max-h-[300px]"

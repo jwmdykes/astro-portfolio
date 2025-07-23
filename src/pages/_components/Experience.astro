@@ -94,7 +94,7 @@ import Section from '@/components/Section.astro'
                             {job.role} /{' '}
                             <span class="text-neutral-600">{job.date}</span>
                         </p>
-                        <ul class="list-disc list-inside mt-2 text-neutral-800">
+                        <ul class="ml-5 lg:ml-0 list-disc list-outside mt-2 text-neutral-800">
                             {job.description.map((item) => (
                                 <li>{item}</li>
                             ))}
@@ -103,7 +103,7 @@ import Section from '@/components/Section.astro'
                 ))
             }
         </div>
-        <div class="shrink-0 w-[2px] bg-neutral-400 rounded-full"></div>
+        <div class="shrink-0 w-[2px] bg-neutral-300 rounded-full"></div>
     </div>
 
     {/* Show More/Less Button */}
@@ -130,7 +130,7 @@ import Section from '@/components/Section.astro'
     }
 
     <div
-        class="-z-10 absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden fill-neutral-400"
+        class="-z-10 absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden fill-neutral-200"
     >
         <Lines
             class="absolute top-0 left-0 max-w-[400px] max-h-[200px] scale-x-[-1]"
