@@ -1,6 +1,7 @@
 ---
 import Menu from '@/assets/icons/menu.svg'
 import Close from '@/assets/icons/close.svg'
+import Logo from '@/assets/logo.svg'
 
 const navLinks = [
     { label: 'Projects', href: '#projects' },
@@ -15,7 +16,10 @@ const navLinks = [
     <nav
         class="h-18 flex items-center justify-between max-w-6xl px-6 md:px-10 mx-auto"
     >
-        <a href="/" class="text-lg font-bold">My Portfolio</a>
+        <a class="flex gap-2 items-center text-lg" href="/">
+            <Logo height={'20px'} width={'30px'} class="translate-y-[1px]" />
+            John Dykes
+        </a>
 
         <div class="hidden md:flex ml-auto gap-3 translate-x-2">
             {
