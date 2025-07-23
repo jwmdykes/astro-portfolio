@@ -1,0 +1,79 @@
+---
+import Particles from 'astro-particles'
+import { type ISourceOptions } from 'tsparticles-engine'
+
+export const options: ISourceOptions = {
+    fullScreen: false,
+    particles: {
+        fpsLimit: 60,
+        color: {
+            value: '#000000',
+        },
+        number: {
+            value: 200,
+        },
+        move: {
+            direction: 'bottom',
+            enable: true,
+            random: false,
+            straight: false,
+            speed: 0.8,
+        },
+        opacity: {
+            value: { min: 0.05, max: 0.3 },
+        },
+        size: {
+            value: { min: 1, max: 5 },
+        },
+        wobble: {
+            distance: 1,
+            enable: true,
+            speed: {
+                min: -0.2,
+                max: 0.2,
+            },
+        },
+    },
+}
+---
+
+<script>
+    import {
+        type Container,
+        type Engine,
+        tsParticles,
+    } from 'tsparticles-engine'
+    import { loadFull } from 'tsparticles'
+
+    // the function name is the parameter passed to the init attribute
+    // required
+    // add the function to window is mandatory, it will be searched there
+    window.particlesInit = async function (engine: Engine) {
+        await loadFull(engine)
+    }
+
+    // the function name is the parameter passed to the loaded attribute
+    // optional
+    // add the function to window is mandatory, it will be searched there
+    window.particlesLoaded = function (container: Container) {
+        container.pause()
+    }
+
+    async function start() {
+        await loadFull(tsParticles)
+    }
+
+    document.addEventListener('DOMContentLoaded', async (event) => {
+        await start()
+    })
+</script>
+
+<div class="absolute top-0 left-0 w-full h-full" id="tsparticles">
+    <Particles
+        id="tsparticles"
+        options={options}
+        init="particlesInit"
+        loaded="particlesLoaded"
+        class="absolute inset-0 z-10"
+    />
+</div>

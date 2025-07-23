@@ -37,16 +37,19 @@ export const socialLinks = [
     },
 ]
 import Section from '@/components/Section.astro'
+import HeroParticles from '@/components/HeroParticles.astro'
 ---
 
-<Section class="flex flex-col relative">
-    <div class="px-6 grow flex flex-col items-center justify-center">
+<Section class="flex flex-col items-center justify-center relative">
+    <div
+        class="px-6 py-6 flex flex-col items-center justify-center rounded-full bg-radial from-white from-30% to-transparent z-10 text-center"
+    >
         <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
         <div class="text-lg sm:text-2xl mt-4 sm:mt-6">
             Full Stack Web and AI Developer
         </div>
         <hr
-            class="mx-auto w-lg max-w-full my-6 border-t-3 border-neutral-400 rounded-full"
+            class="mx-auto max-w-full my-6 border-t-3 border-neutral-400 rounded-full"
         />
         <ul class="flex items-center justify-center gap-4 fill-current">
             {
@@ -73,27 +76,5 @@ import Section from '@/components/Section.astro'
         <Down width="35px" height="35px" />
     </div>
 
-    <div
-        class="z-1000 absolute w-full h-full left-0 top-0 bg-blue pointer-events-none"
-        id="tsparticles"
-    >
-    </div>
+    <HeroParticles />
 </Section>
-
-<script>
-    import { tsParticles } from '@tsparticles/engine'
-
-    tsParticles.load({
-        id: 'tsparticles',
-        options: {
-            particles: {
-                color: {
-                    value: '#ff0000',
-                },
-            },
-            fullScreen: {
-                zIndex: 1000,
-            },
-        },
-    })
-</script>
