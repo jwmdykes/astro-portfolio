@@ -10,7 +10,11 @@ export const options: ISourceOptions = {
             value: '#000000',
         },
         number: {
-            value: 200,
+            value: 100,
+            density: {
+                enable: true,
+                area: 500,
+            },
         },
         move: {
             direction: 'bottom',
@@ -20,7 +24,7 @@ export const options: ISourceOptions = {
             speed: 0.8,
         },
         opacity: {
-            value: { min: 0.05, max: 0.3 },
+            value: { min: 0.05, max: 0.4 },
         },
         size: {
             value: { min: 1, max: 5 },
