@@ -39,7 +39,7 @@ export const socialLinks = [
 import Section from '@/components/Section.astro'
 ---
 
-<Section class="flex flex-col">
+<Section class="flex flex-col relative">
     <div class="px-6 grow flex flex-col items-center justify-center">
         <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
         <div class="text-lg sm:text-2xl mt-4 sm:mt-6">
@@ -67,45 +67,33 @@ import Section from '@/components/Section.astro'
     </div>
 
     <div
-        id="ts-particles"
-        class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
+        class="flex flex-col items-center gap-1 absolute bottom-4 left-1/2 -translate-x-1/2 font-medium text-sm"
     >
-        <div
-            class="flex flex-col items-center gap-1 absolute bottom-4 left-1/2 -translate-x-1/2 font-medium text-sm"
-        >
-            Scroll
-            <Down width="35px" height="35px" />
-        </div>
+        Scroll
+        <Down width="35px" height="35px" />
+    </div>
+
+    <div
+        class="z-1000 absolute w-full h-full left-0 top-0 bg-blue pointer-events-none"
+        id="tsparticles"
+    >
     </div>
 </Section>
 
 <script>
     import { tsParticles } from '@tsparticles/engine'
 
-    console.log(tsParticles)
-
-    document.addEventListener('DOMContentLoaded', async () => {
-        await tsParticles.load({
-            id: 'ts-particles',
-            options: {
-                particles: {
-                    number: {
-                        value: 100,
-                    },
-                    links: {
-                        enable: true,
-                    },
-                    move: {
-                        enable: true,
-                    },
-                    color: {
-                        value: '#00ff00',
-                    },
-                    size: {
-                        value: { min: 1, max: 3 },
-                    },
+    tsParticles.load({
+        id: 'tsparticles',
+        options: {
+            particles: {
+                color: {
+                    value: '#ff0000',
                 },
             },
-        })
+            fullScreen: {
+                zIndex: 1000,
+            },
+        },
     })
 </script>
