@@ -1,6 +1,5 @@
 ---
 import SectionHeader from '@/components/SectionHeader.astro'
-import BlackCircles from '@/assets/design/black-circles.svg'
 
 import LangPanelThumbnail from '@/assets/projects/langpanel.webp'
 import OhKoreanThumbnail from '@/assets/projects/ohkorean.webp'
@@ -53,7 +52,7 @@ const { class: className, ...props } = Astro.props
 ---
 
 <Section
-    class="flex flex-col items-center justify-center px-4 sm:px-8 py-12 md:py-20 z-10"
+    class="relative flex flex-col items-center justify-center px-4 sm:px-8 py-12 md:py-20 z-10"
     {...props}
 >
     <SectionHeader>Featured Projects</SectionHeader>
@@ -86,21 +85,5 @@ const { class: className, ...props } = Astro.props
                 </div>
             ))
         }
-    </div>
-
-    <div
-        class="-z-10 absolute w-full h-full pointer-events-none overflow-hidden fill-neutral-200"
-    >
-        <BlackCircles
-            class="absolute bottom-0 left-0 scale-y-[-1] max-w-[300px] max-h-[300px]"
-            width={'30dvw'}
-            height={'30dvw'}
-        />
-
-        <BlackCircles
-            class="absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1] max-w-[300px] max-h-[300px]"
-            width={'30dvw'}
-            height={'30dvw'}
-        />
     </div>
 </Section>
