@@ -43,7 +43,7 @@ import Mountains from '@/assets/design/mountains.svg'
 
 <Section class="flex flex-col items-center justify-center relative">
     <div
-        class="-mt-12 px-6 py-6 flex flex-col items-center justify-center rounded-full bg-radial from-background from-30% to-transparent z-10 text-center"
+        class="-mt-12 px-6 py-6 flex flex-col items-center justify-center rounded-full bg-radial from-background from-30% to-transparent z-10 text-center animate-fastFadeIn"
     >
         <div class="text-5xl sm:text-7xl font-bold">John Dykes</div>
         <div class="text-lg sm:text-2xl mt-4 sm:mt-6 text-neutral-700">
@@ -69,7 +69,7 @@ import Mountains from '@/assets/design/mountains.svg'
     </div>
 
     <div
-        class="absolute bottom-0 left-0 w-full overflow-hidden z-20 flex items-center justify-center"
+        class="absolute bottom-0 left-0 w-full overflow-hidden z-20 flex items-center justify-center animate-fadeIn"
     >
         <Mountains class="max-w-4xl min-w-xl mx-auto" />
         <div
@@ -82,3 +82,22 @@ import Mountains from '@/assets/design/mountains.svg'
 
     <HeroParticles />
 </Section>
+
+<style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .animate-fadeIn {
+        animation: 2.3s fadeIn;
+    }
+
+    .animate-fastFadeIn {
+        animation: 1.2s fadeIn;
+    }
+</style>
