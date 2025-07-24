@@ -24,11 +24,9 @@ const navLinks = [
         <div class="hidden md:flex ml-auto gap-3 translate-x-2">
             {
                 navLinks.map((link) => (
-                    <a
-                        href={link.href}
-                        class="px-2 py-1 border-b-2 border-transparent hover:border-black transition-all duration-200"
-                    >
+                    <a href={link.href} class="relative px-2 py-1 group">
                         {link.label}
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-200 group-hover:w-full" />
                     </a>
                 ))
             }
@@ -49,7 +47,7 @@ const navLinks = [
 
 <div
     id="mobile-menu"
-    class="fixed top-0 right-0 h-full w-64 bg-background z-1002 shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out"
+    class="fixed top-0 right-0 h-full w-64 bg-background z-1002 shadow-lg transform translate-x-full transition-transform duration-200 ease-in-out block sm:hidden"
 >
     <div
         class="p-6 flex items-center justify-between border-b-2 border-neutral-200"
