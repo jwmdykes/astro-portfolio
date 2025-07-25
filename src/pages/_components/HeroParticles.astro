@@ -1,85 +1,58 @@
----
-import Particles from 'astro-particles'
-import { type ISourceOptions } from 'tsparticles-engine'
-
-export const options: ISourceOptions = {
-    fullScreen: false,
-    particles: {
-        fpsLimit: 60,
-        color: {
-            value: '#000000',
-        },
-        number: {
-            value: 100,
-            density: {
-                enable: true,
-                area: 600,
-            },
-        },
-        move: {
-            direction: 'bottom',
-            enable: true,
-            random: false,
-            straight: false,
-            speed: 0.8,
-        },
-        opacity: {
-            value: { min: 0.2, max: 0.6 },
-        },
-        size: {
-            value: { min: 1, max: 5 },
-        },
-        wobble: {
-            distance: 1,
-            enable: true,
-            speed: {
-                min: -0.2,
-                max: 0.2,
-            },
-        },
-    },
-}
----
-
 <script>
-    import {
-        type Container,
-        type Engine,
-        tsParticles,
-    } from 'tsparticles-engine'
-    import { loadFull } from 'tsparticles'
+    import type { ISourceOptions } from '@tsparticles/engine'
+    import { tsParticles } from '@tsparticles/engine'
+    import { loadBasic } from '@tsparticles/basic'
 
-    // the function name is the parameter passed to the init attribute
-    // required
-    // add the function to window is mandatory, it will be searched there
-    window.particlesInit = async function (engine: Engine) {
-        await loadFull(engine)
+    export const options: ISourceOptions = {
+        fullScreen: false,
+        particles: {
+            fpsLimit: 60,
+            color: {
+                value: '#000000',
+            },
+            number: {
+                value: 100,
+                density: {
+                    enable: true,
+                    height: 800,
+                    width: 800,
+                },
+            },
+            move: {
+                direction: 'bottom',
+                enable: true,
+                random: false,
+                straight: false,
+                speed: 0.8,
+            },
+            opacity: {
+                value: { min: 0.2, max: 0.6 },
+            },
+            size: {
+                value: { min: 1, max: 5 },
+            },
+            wobble: {
+                distance: 1,
+                enable: true,
+                speed: {
+                    min: -0.2,
+                    max: 0.2,
+                },
+            },
+        },
     }
 
-    // the function name is the parameter passed to the loaded attribute
-    // optional
-    // add the function to window is mandatory, it will be searched there
-    window.particlesLoaded = function (container: Container) {
-        container.pause()
-    }
+    document.addEventListener('DOMContentLoaded', async () => {
+        await loadBasic(tsParticles)
 
-    async function start() {
-        await loadFull(tsParticles)
-    }
-
-    document.addEventListener('DOMContentLoaded', async (event) => {
-        await start()
+        tsParticles.load({
+            id: 'tsparticles',
+            options: options,
+        })
     })
 </script>
 
 <div class="absolute top-0 left-0 w-full h-full animate-snow" id="tsparticles">
-    <Particles
-        id="tsparticles"
-        options={options}
-        init="particlesInit"
-        loaded="particlesLoaded"
-        class="absolute inset-0 z-10"
-    />
 </div>
 
 <style>
@@ -96,6 +69,6 @@ export const options: ISourceOptions = {
     }
 
     .animate-snow {
-        animation: 2.8s snow;
+        animation: 2.6s snow forwards;
     }
 </style>
